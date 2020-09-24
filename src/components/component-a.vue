@@ -1,19 +1,21 @@
 <template>
-    <div id="app">
-        <div>{{text}}</div>
+    <div>
+        123
     </div>
 </template>
 
 <script>
-
 export default {
-    components: {
+    props: {
 
     },
     data() {
         return {
-            text: 'Hello word',
+
         }
+    },
+    computed: {
+        
     }
 }
 </script>
