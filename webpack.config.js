@@ -1,9 +1,11 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const webpack = require('webpack')
 
 module.exports = {
     mode: 'none',
+    devtool: 'source-map',
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         filename: 'bundle.js',
@@ -17,10 +19,50 @@ module.exports = {
             },
             {
                 test: /.css$/,
-                use: ['style-loader', 'css-loader']
+                oneOf: [
+                    // 这里匹配 `<style module>`
+                    {
+                        resourceQuery: /module/,
+                        use: [
+                            'style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: {
+                                        // localIdentName: '[path][local][name]'
+                                        localIdentName: '[local]__[hash:base64:5]'
+                                    },
+                                    sourceMap: true,
+                                }
+                            }
+                        ],
+                        exclude: [path.resolve(__dirname, 'src/common/font')],
+                        // include: []
+
+                    },
+                    // 这里匹配普通的 `<style>` 或 `<style scoped>`
+                    {
+                        use: [
+                            'style-loader',
+                            'css-loader'
+                        ]
+                    }
+                ]
+                // use: [
+                //     'style-loader',
+                //     {
+                //         loader: 'css-loader',
+                //         options: {
+                //             modules: {
+                //                 // localIdentName: '[path][local][name]'
+                //                 localIdentName: '[local]__[hash:base64:5]'
+                //             }
+                //         }
+                //     }
+                // ]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf|gif|png|jpe?g|svg)$/,
+                test: /\.(woff|woff2|eot|ttf|otf|gif|png|jpe?g|svg)$/i,
                 use: [
                     {
                         loader: 'url-loader',
@@ -30,6 +72,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.ts$/,
+                use: 'ts-loader'
             }
         ]
     },
@@ -47,6 +93,7 @@ module.exports = {
             // favicon: 'src/favicon.ico',
             // hash: true
         }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
         alias: {
