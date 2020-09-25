@@ -79,6 +79,16 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        // contentBase: path.join(__dirname, "dist"),
+        host: '0.0.0.0',
+        port: 8080,
+        // historyApiFallback: true,// pass router to frontend rendor when url-api not found
+        hot: true,
+        // overlay: {
+        //     errors: true
+        // }
+    },
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
@@ -92,8 +102,10 @@ module.exports = {
             // },
             // favicon: 'src/favicon.ico',
             // hash: true
-        }),
-        new webpack.HotModuleReplacementPlugin(),
+        })
+
+        // devServer设置hot:true自动启动HMR
+        // new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         alias: {
