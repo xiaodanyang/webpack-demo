@@ -3,6 +3,8 @@
         <div class="red">{{text}}</div>
         <div>apiCount: {{apiCount}}</div>
         <div>parentCount: {{parentCount}}</div>
+
+        <div>222</div>
         
         <component-a :count.sync="parentCount"></component-a>
     </div>
@@ -10,6 +12,14 @@
 
 <script>
 import componentA from '@/components/component-a.vue'
+
+import { foo } from './demo1'
+console.log(foo)
+
+import vue from 'vue/dist/vue'
+
+import a,{b} from './demo2'
+console.log(b)
 
 export default {
     components: {

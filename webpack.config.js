@@ -9,7 +9,7 @@ module.exports = {
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, 'dist')
+        path: path.join(__dirname, 'dist'),
     },
     module: {
         rules: [
@@ -80,7 +80,7 @@ module.exports = {
         ]
     },
     devServer: {
-        // contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "dist_dev"),
         host: '0.0.0.0',
         port: 8080,
         // historyApiFallback: true,// pass router to frontend rendor when url-api not found
@@ -91,18 +91,24 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
+
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./dist_dev/manifest.json'),
+        }),
+
         new HtmlWebpackPlugin({
             title: '测试demo',
             filename: 'index.html',
             template: 'src/index.html',
-            chunksSortMode: 'none',
+            // chunksSortMode: 'none',
             // inject: 'body',
             // env: {
             //     manifest: '/assets/manifest.json?v=0.3.9'
             // },
             // favicon: 'src/favicon.ico',
-            // hash: true
-        })
+            // hash: true  //js后面加 '?此次编译的hash'
+        }),
 
         // devServer设置hot:true自动启动HMR
         // new webpack.HotModuleReplacementPlugin()
