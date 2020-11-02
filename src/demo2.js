@@ -1,3 +1,6 @@
+import xxx from './demo1'
+console.log(xxx)
+
 export const b = function() {
     console.log('foo2')
 };
