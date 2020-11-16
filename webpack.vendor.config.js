@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
-        vendor1: ['./src/demo1.js', './src/demo2.js', 'vue'],
+        // vendor1: ['./src/demo1.js', './src/demo2.js', 'vue'],
+        vendor1: ['./src/demo2.js', 'vue'],
         vendor2: ['vue']
     },
     output: {
