@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.9"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
