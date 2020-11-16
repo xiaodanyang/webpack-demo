@@ -21,6 +21,11 @@ import vue from 'vue/dist/vue'
 import a,{b} from './demo2'
 console.log(b)
 
+import {store1, store2} from './store.js'
+console.log(store1)
+console.log(store1())
+console.log(store2)
+
 export default {
     components: {
         componentA
