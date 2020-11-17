@@ -101,14 +101,16 @@ module.exports = {
             title: '测试demo',
             filename: 'index.html',
             template: 'src/index.html',
-            // chunksSortMode: 'none',
             // inject: 'body',
+            // chunks: ['vendor1', 'vendor2', 'bundle'],
+            // chunksSortMode: 'none',
             // env: {
             //     manifest: '/assets/manifest.json?v=0.3.9'
             // },
             // favicon: 'src/favicon.ico',
             // hash: true  //js后面加 '?此次编译的hash'
         }),
+
 
         // devServer设置hot:true自动启动HMR
         // new webpack.HotModuleReplacementPlugin()
