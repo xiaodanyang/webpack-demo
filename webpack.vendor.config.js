@@ -6,11 +6,10 @@ module.exports = {
     mode: 'development',
     entry: {
         // vendor1: ['./src/demo1.js', './src/demo2.js', 'vue'],
-        // vendor1: ['./src/demo2.js', 'vue'],
         vendor1: ['./src/demo2.js', 'vue'],
 
         // vendor2: ['vue']
-        vendor2: ['vue-router']
+        vendor2: ['vue-router'] //TODO: 打包多个vendor, 生成的manifest报错
     },
     output: {
         path: path.resolve(__dirname, 'dist_dev'),
