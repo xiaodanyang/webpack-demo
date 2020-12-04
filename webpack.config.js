@@ -47,7 +47,7 @@ module.exports = {
                             'css-loader'
                         ]
                     }
-                ]
+                ],
                 // use: [
                 //     'style-loader',
                 //     {

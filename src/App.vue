@@ -53,9 +53,9 @@ export default {
 </script>
 
 <style module>
-/* .red {
-    color: green;
-} */
+.red {
+    color: yellow;
+}
 :global(.red) {
     color: blue;
 }

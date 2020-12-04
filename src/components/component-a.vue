@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div :class="$style.red">abc</div> -->
+        <div :class="$style.red">abc</div>
         <!-- <div class="xyz">xyz</div> -->
         <div>{{childCount}}</div>
         <button @click="foo">按钮</button>
