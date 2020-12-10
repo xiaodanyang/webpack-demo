@@ -14,11 +14,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.vue$/,
+                test: /\.vue$/,
                 loader: 'vue-loader'
             },
             {
-                test: /.css$/,
+                test: /\.css$/,
                 oneOf: [
                     // 这里匹配 `<style module>`
                     {
@@ -77,6 +77,7 @@ module.exports = {
                 test: /\.ts$/,
                 use: 'ts-loader'
             }
+            //添加js、ES6的loader
         ]
     },
     devServer: {

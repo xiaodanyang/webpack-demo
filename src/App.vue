@@ -7,6 +7,8 @@
         <div>222</div>
         
         <component-a :count.sync="parentCount"></component-a>
+
+        <!-- TODO: 新增ES6语言，添加babel7 -->
     </div>
 </template>
 
